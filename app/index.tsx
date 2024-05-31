@@ -1,8 +1,10 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
 import Button from "@/components/Button";
+import { useRouter } from "expo-router";
 
 const index = () => {
+  const router = useRouter();
   return (
     <View style={styles.container}>
       <Image
@@ -17,15 +19,36 @@ const index = () => {
           style={{
             color: "white",
             fontSize: 40,
-            fontFamily: "Montserrat",
+            fontFamily: "Montserrat_400Regular",
             fontWeight: "bold",
           }}
         >
-          <Text style={{ fontSize: 24, fontWeight: "bold" }}>Plan Your</Text>
+          <Text
+            style={{
+              fontSize: 24,
+              fontFamily: "Montserrat_400Regular",
+            }}
+          >
+            Plan Your
+          </Text>
           {"\n"}
-          <Text>Luxurious Vacation</Text>
+          <Text style={{ fontSize: 40, fontFamily: "Montserrat_500Medium" }}>
+            Luxurious Vacation
+          </Text>
         </Text>
-        <Button text="Explore" />
+      </View>
+      <View
+        style={{
+          width: "auto",
+
+          position: "absolute",
+          bottom: 48,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Button onPress={() => router.push("/(tabs)/")} text="Explore" />
       </View>
     </View>
   );
@@ -60,7 +83,6 @@ const styles = StyleSheet.create({
     bottom: 122,
 
     left: 30,
-    color: "white",
   },
 
   image: {
