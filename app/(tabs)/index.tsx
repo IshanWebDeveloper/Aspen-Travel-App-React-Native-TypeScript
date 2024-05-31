@@ -16,11 +16,7 @@ import CategoryOptionItem from "@/components/CategoryOptionItem";
 import { useState } from "react";
 import favorites from "./favorites";
 import LocationCard from "@/components/LocationCard";
-import {
-  popularPlaces,
-  RecommendedPlace,
-  recommendedPlaces,
-} from "@/assets/data/data";
+import { popularPlaces, recommendedPlaces } from "@/assets/data/data";
 import RecommendedLocationCard from "@/components/RecommendedLocationCard";
 import Colors from "@/constants/Colors";
 
@@ -163,7 +159,6 @@ export default function HomeScreen() {
                     <LocationCard
                       title={item.title}
                       image={item.image}
-                      location="Aspen, USA"
                       rating={item.rating}
                       favorites={item.favorites}
                     />
