@@ -14,7 +14,6 @@ import { FontAwesome } from "@expo/vector-icons";
 import SearchIcon from "@/components/Icons/SearchIcon";
 import CategoryOptionItem from "@/components/CategoryOptionItem";
 import { useState } from "react";
-import favorites from "./favorites";
 import LocationCard from "@/components/LocationCard";
 import { popularPlaces, recommendedPlaces } from "@/assets/data/data";
 import RecommendedLocationCard from "@/components/RecommendedLocationCard";
@@ -35,49 +34,15 @@ export default function HomeScreen() {
       <Stack.Screen options={{ headerShown: false }} />
 
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.locationHeaderOption}>
+        <View style={styles.locationHeaderDropDown}>
           <LocationIcon />
-          <Text
-            style={{
-              fontSize: 12,
-              fontFamily: "Montserrat_400Regular",
-            }}
-          >
-            Aspen, USA
-          </Text>
+          <Text style={styles.locationHeaderDropDownText}>Aspen, USA</Text>
           <FontAwesome name="chevron-down" size={12} color="#176ff2" />
         </View>
         <View>
-          <Text
-            style={{
-              fontFamily: "Montserrat_400Regular",
-              fontSize: 14,
-              fontStyle: "normal",
-            }}
-          >
-            Explore
-          </Text>
-          <Text
-            style={{
-              fontFamily: "Montserrat_700Bold",
-              fontSize: 24,
-              fontStyle: "normal",
-            }}
-          >
-            Aspen
-          </Text>
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              borderRadius: 24,
-              backgroundColor: "#F3F8FE",
-              padding: 16,
-              marginTop: 24,
-              gap: 10,
-            }}
-          >
+          <Text style={styles.screenSubTitle}>Explore</Text>
+          <Text style={styles.screenTitle}>Aspen</Text>
+          <View style={styles.searchContainer}>
             <SearchIcon />
             <TextInput placeholder="Find things to do"></TextInput>
           </View>
@@ -113,34 +78,9 @@ export default function HomeScreen() {
             style={{ marginTop: 24 }}
           >
             <View>
-              <View
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginTop: 24,
-                }}
-              >
-                <Text
-                  style={{
-                    fontFamily: "Montserrat_600SemiBold",
-                    fontSize: 18,
-                    fontStyle: "normal",
-                  }}
-                >
-                  Popular
-                </Text>
-                <Text
-                  style={{
-                    fontFamily: "Montserrat_500Medium",
-                    fontSize: 12,
-                    fontStyle: "normal",
-                    color: "#176ff2",
-                  }}
-                >
-                  See All
-                </Text>
+              <View style={styles.carouselTitleContainer}>
+                <Text style={styles.carouselTitle}>Popular</Text>
+                <Text style={styles.linkText}>See All</Text>
               </View>
               <View style={{ marginTop: 24 }}>
                 <FlatList
@@ -167,24 +107,8 @@ export default function HomeScreen() {
             style={{ marginTop: 24 }}
           >
             <View>
-              <View
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginTop: 24,
-                }}
-              >
-                <Text
-                  style={{
-                    fontFamily: "Montserrat_600SemiBold",
-                    fontSize: 18,
-                    fontStyle: "normal",
-                  }}
-                >
-                  Recommended
-                </Text>
+              <View style={styles.carouselTitleContainer}>
+                <Text style={styles.carouselTitle}>Recommended</Text>
               </View>
               <View style={{ marginTop: 24 }}>
                 <FlatList
@@ -211,11 +135,15 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  locationHeaderOption: {
+  locationHeaderDropDown: {
     flexDirection: "row",
     gap: 6,
     alignItems: "center",
     justifyContent: "flex-end",
+  },
+  locationHeaderDropDownText: {
+    fontSize: 12,
+    fontFamily: "Montserrat_400Regular",
   },
   container: {
     flex: 1,
@@ -223,9 +151,43 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: Colors.light.background,
   },
-  title: {
-    fontSize: 20,
-    fontWeight: "normal",
+  searchContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    borderRadius: 24,
+    backgroundColor: "#F3F8FE",
+    padding: 16,
+    marginTop: 24,
+    gap: 10,
+  },
+  screenTitle: {
+    fontFamily: "Montserrat_700Bold",
+    fontSize: 24,
+    fontStyle: "normal",
+  },
+  screenSubTitle: {
+    fontFamily: "Montserrat_400Regular",
+    fontSize: 14,
+    fontStyle: "normal",
+  },
+  carouselTitleContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 24,
+  },
+  carouselTitle: {
+    fontFamily: "Montserrat_600SemiBold",
+    fontSize: 18,
+    fontStyle: "normal",
+  },
+  linkText: {
+    fontFamily: "Montserrat_500Medium",
+    fontSize: 12,
+    fontStyle: "normal",
+    color: "#176ff2",
   },
   separator: {
     marginVertical: 30,
