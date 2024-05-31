@@ -2,30 +2,7 @@ import BathTubIcon from "@/components/Icons/BathTubIcon";
 import CutleryIcon from "@/components/Icons/CutleryIcon";
 import PoolIcon from "@/components/Icons/PoolIcon";
 import WifiIcon from "@/components/Icons/WifiIcon";
-
-export enum Facilities {
-  ONE_HEATER = "1 HEATER",
-  DINNER = "DINNER",
-  ONE_TUB = "1 TUB",
-  POOL = "Pool",
-}
-
-export type Facility = {
-  icon: React.ReactNode;
-  facilityName: Facilities;
-};
-
-export type PopularPlace = {
-  title: string;
-  location: string;
-  favorites: boolean;
-  rating: number;
-  number_of_reviews: number;
-  description: string;
-  price: number;
-  facilites: Facility[];
-  image: any;
-};
+import { Facilities, PopularPlace, RecommendedPlace } from "@/types";
 
 export const popularPlaces: PopularPlace[] = [
   {
@@ -70,12 +47,6 @@ export const popularPlaces: PopularPlace[] = [
     image: require("../../assets/images/Coeurdes_Alpes.png"),
   },
 ];
-
-export type RecommendedPlace = {
-  title: string;
-  duration: string;
-  image: any;
-};
 
 export const recommendedPlaces: RecommendedPlace[] = [
   {
