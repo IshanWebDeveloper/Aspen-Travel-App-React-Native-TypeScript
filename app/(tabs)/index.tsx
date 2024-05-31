@@ -28,14 +28,6 @@ const categoryOptions = [
   "NightLife",
 ];
 
-type PopularPlace = {
-  title: string;
-  location: string;
-  favorites: boolean;
-  rating: number;
-  image: any;
-};
-
 export default function HomeScreen() {
   const [selectedCategory, setSelectedCategory] = useState("Location");
   return (
