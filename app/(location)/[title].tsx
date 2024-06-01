@@ -14,7 +14,7 @@ import { Link, Stack, useLocalSearchParams } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { useState } from "react";
-import { Facilities, popularPlaces } from "@/assets/data/data";
+import { popularPlaces } from "@/assets/data/data";
 import IconlyHeartIcon from "@/components/Icons/IconlyHeartIcon";
 import BackIcon from "@/components/Icons/BackIcon";
 import { LinearGradient } from "expo-linear-gradient";
@@ -90,21 +90,7 @@ export default function PopularLocationDetailsScreen() {
               colors={["#176FF2", "#196EEE"]}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
-              style={{
-                paddingVertical: 16,
-                paddingHorizontal: 32,
-                borderRadius: 16,
-                shadowColor: "rgba(0, 56, 255, 0.24)",
-                shadowOffset: { width: 0, height: 6 },
-                shadowOpacity: 0.24,
-                shadowRadius: 19,
-                elevation: 4, // This is for Android
-                alignItems: "center",
-                justifyContent: "center",
-                marginTop: 16,
-                width: 223,
-                height: "auto",
-              }}
+              style={styles.LinearGradientStyle}
             >
               <Text
                 style={{ color: "white", fontFamily: "Montserrat_700Bold" }}
@@ -125,6 +111,21 @@ const styles = StyleSheet.create({
     height: Dimensions.get("window").height,
     padding: 20,
     backgroundColor: "white",
+  },
+  LinearGradientStyle: {
+    paddingVertical: 16,
+    paddingHorizontal: 32,
+    borderRadius: 16,
+    shadowColor: "rgba(0, 56, 255, 0.24)",
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.24,
+    shadowRadius: 19,
+    elevation: 4, // This is for Android
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 16,
+    width: 223,
+    height: "auto",
   },
   imageContainer: {
     width: "100%",
