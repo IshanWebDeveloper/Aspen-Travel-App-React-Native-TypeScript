@@ -1,18 +1,25 @@
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 interface CategoryOptionItemProps {
   categoryName: string;
+  selectedCategory: string;
 }
 
-const CategoryOptionItem = ({ categoryName }: CategoryOptionItemProps) => {
+const CategoryOptionItem = ({
+  categoryName,
+  selectedCategory,
+}: CategoryOptionItemProps) => {
   return (
     <View>
       <Text
-        style={{
-          fontFamily: "Montserrat_400Regular",
-          fontSize: 14,
-          fontStyle: "normal",
-        }}
+        style={[
+          styles.text,
+
+          selectedCategory === categoryName && {
+            color: "#176FF2",
+            fontFamily: "Montserrat_700Bold",
+          },
+        ]}
       >
         {categoryName}
       </Text>
@@ -28,5 +35,10 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     margin: 10,
     borderRadius: 33,
+  },
+  text: {
+    fontSize: 14,
+    fontFamily: "Montserrat_400Regular",
+    color: "#7E7E7E",
   },
 });
