@@ -9,11 +9,8 @@ import {
   View,
   Image,
 } from "react-native";
-import { Text as SVGText } from "react-native-svg";
 import { Link, Stack, useLocalSearchParams } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-
-import { useState } from "react";
 import { popularPlaces } from "@/assets/data/data";
 import IconlyHeartIcon from "@/components/Icons/IconlyHeartIcon";
 import BackIcon from "@/components/Icons/BackIcon";
@@ -21,15 +18,6 @@ import { LinearGradient } from "expo-linear-gradient";
 import StarIcon from "@/components/Icons/StarIcon";
 import { FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 import FacilityCardItem from "@/components/FacilityCardItem";
-import WifiIcon from "@/components/Icons/WifiIcon";
-
-const categoryOptions = [
-  "Location",
-  "Hotels",
-  "Food",
-  "Adventure",
-  "NightLife",
-];
 
 export default function PopularLocationDetailsScreen() {
   const { title } = useLocalSearchParams();
