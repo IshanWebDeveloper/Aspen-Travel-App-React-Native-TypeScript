@@ -29,6 +29,7 @@ const categoryOptions = [
 
 export default function HomeScreen() {
   const [selectedCategory, setSelectedCategory] = useState("Location");
+  const [isSelected, setIsSelected] = useState(false);
   return (
     <SafeAreaView style={styles.container}>
       <Stack.Screen options={{ headerShown: false }} />
@@ -54,20 +55,26 @@ export default function HomeScreen() {
           >
             {categoryOptions.map((category) => (
               <Pressable
-                onPress={() => setSelectedCategory(category)}
-                key={category}
-                style={{
-                  paddingHorizontal: 16,
-                  paddingVertical: 12,
-                  marginRight: 20,
-                  borderRadius: 33,
-                  backgroundColor:
-                    selectedCategory === category
-                      ? "linear-gradient(271deg, rgba(23, 111, 242, 0.05) 1.64%, rgba(25, 110, 238, 0.05) 102.71%)"
-                      : "white",
+                onPress={() => {
+                  setSelectedCategory(category);
+                  setIsSelected(!isSelected);
                 }}
+                key={category}
+                style={[
+                  styles.categoryOptionsContainer,
+                  {
+                    backgroundColor:
+                      selectedCategory === category
+                        ? "linear-gradient(271deg, rgba(23, 111, 242, 0.05) 1.64%, rgba(25, 110, 238, 0.05) 102.71%)"
+                        : "white",
+                  },
+                ]}
               >
-                <CategoryOptionItem key={category} categoryName={category} />
+                <CategoryOptionItem
+                  key={category}
+                  categoryName={category}
+                  selectedCategory={selectedCategory}
+                />
               </Pressable>
             ))}
           </ScrollView>
@@ -144,6 +151,12 @@ const styles = StyleSheet.create({
   locationHeaderDropDownText: {
     fontSize: 12,
     fontFamily: "Montserrat_400Regular",
+  },
+  categoryOptionsContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    marginRight: 20,
+    borderRadius: 33,
   },
   container: {
     flex: 1,
